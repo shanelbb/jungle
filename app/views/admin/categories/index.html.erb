@@ -1,6 +1,6 @@
 <h1>Categories</h1>
 
-<table class="table">
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,8 +12,7 @@
       <tr>
         <td><%= category.name %></td>
         <td>
-          <%= link_to 'Edit', edit_admin_category_path(category), class: 'btn btn-sm btn-primary' %>
-          <%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+          <!-- Actions like Edit and Delete can be added here if supported in the future -->
         </td>
       </tr>
     <% end %>
