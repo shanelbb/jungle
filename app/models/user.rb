@@ -1,14 +1,12 @@
 class User < ApplicationRecord
-    has_secure_password
-  
-    
-    validates :email, presence: true, uniqueness: true
-  
-    
-    validates :password, length: { minimum: 6, message: 'must be at least 6 characters long' }, if: -> { new_record? || !password.nil? }
-    
-    
-    validates :password, presence: true, on: :create
-    validates :password_confirmation, presence: true, on: :create
+  has_secure_password
+
+  validates :password, length: { minimum: 6 }, on: :create
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :first_name, :last_name, presence: true
+
+  def self.authenticate_with_credentials(email, password)
+    user = User.find_by('LOWER(email) = ?', email.strip.downcase)
+    user && user.authenticate(password) ? user : nil
   end
-  
+end
