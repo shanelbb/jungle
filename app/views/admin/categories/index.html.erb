@@ -4,16 +4,14 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Actions</th>
+      
     </tr>
   </thead>
   <tbody>
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td>
-          <!-- Actions like Edit and Delete can be added here if supported in the future -->
-        </td>
+        
       </tr>
     <% end %>
   </tbody>
