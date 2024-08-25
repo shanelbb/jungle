@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
   get 'about', to: 'about#index', as: 'about'
-  get '/product', to: 'products#show'
 
-
-  resources :products, only: [:show]
+  resources :products, only: [:index, :show]
   resources :categories, only: [:show]
   resource :cart, only: [:show] do
     post :add_item
